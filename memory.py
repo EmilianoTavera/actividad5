@@ -53,7 +53,7 @@ def tap(x, y):
     mark = state['mark']
     countTap += 1
     writer.undo()
-    writer.goto(197,197)
+    writer.goto(0,197)
     writer.write(countTap)
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
@@ -81,9 +81,12 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        if(int(tiles[mark]) < 10):
+            goto(x+12, y)
+        else:     
+            goto(x+2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 30, 'normal'),align = "left")
 
     update()
     ontimer(draw, 100)
