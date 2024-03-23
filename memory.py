@@ -68,10 +68,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        if letters[mark] in string.ascii_lowercase:
-            goto(x + 12, y)
-        else:
-            goto(x + 2, y)
+        goto(x + 12, y)
         color('black')
         write(letters[mark], font=('Arial', 30, 'normal'), align="left")
 
